@@ -31,11 +31,11 @@ export default function Home() {
           <div className="flex flex-wrap gap-4">
           <div className="flex-1">
               <label htmlFor="keyword" className="sr-only">KataKunci:</label>
-              <input type="text" name="keyword" id="keyword" value={keyword} onChange={(event) => setKeyword(event.target.value)} placeholder="Enter a keyword and press Search" className="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+              <input type="text" name="keyword" id="keyword" value={keyword} onChange={(event) => setKeyword(event.target.value)} placeholder="Kata Kunci" className="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
             </div>
             <div className="flex-2">
             <label htmlFor="mitra" className="sr-only">Mitra:</label>
-              <input type="text" name="mitra" id="mitra" value={mitra} onChange={(event) => setmitra(event.target.value)} placeholder="Enter a keyword and press Search" className="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+              <input type="text" name="mitra" id="mitra" value={mitra} onChange={(event) => setmitra(event.target.value)} placeholder="Mitra" className="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
             </div>
             
             <div className="flex-none">
