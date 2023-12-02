@@ -4,13 +4,14 @@ import Card from '../components/Card';
 export default function Home() {
   const [mitra, setmitra] = useState('');
   const [keyword, setKeyword] = useState('');
+  const [kota, setkota] = useState('');
   const [results, setResults] = useState([]);
   // console.log(results)
   async function handleSubmit(event) {
     event.preventDefault();
     // Disable SSL/TLS certificate validation
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-    const url = `https://api.kampusmerdeka.kemdikbud.go.id/magang/browse/position?offset=0&limit=1000&location_key=&mitra_key=${encodeURIComponent(mitra)}&keyword=${encodeURIComponent(keyword)}&sector_id=&sort_by=published_time&order=desc`;
+    const url = `https://api.kampusmerdeka.kemdikbud.go.id/magang/browse/position?offset=0&limit=1000&location_key=${encodeURIComponent(kota)}&mitra_key=${encodeURIComponent(mitra)}&keyword=${encodeURIComponent(keyword)}&sector_id=&sort_by=published_time&order=desc`;
     try {
       const response = await fetch(url);
       // console.log(response);
@@ -28,14 +29,18 @@ export default function Home() {
       <div className="container mx-auto py-8">
         <h1 className="text-3xl font-bold mb-8">MBKM</h1>
         <form onSubmit={handleSubmit} className="mb-8">
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-2">
           <div className="flex-1">
               <label htmlFor="keyword" className="sr-only">KataKunci:</label>
               <input type="text" name="keyword" id="keyword" value={keyword} onChange={(event) => setKeyword(event.target.value)} placeholder="Kata Kunci" className="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
             </div>
-            <div className="flex-2">
+            <div className="flex-1">
             <label htmlFor="mitra" className="sr-only">Mitra:</label>
               <input type="text" name="mitra" id="mitra" value={mitra} onChange={(event) => setmitra(event.target.value)} placeholder="Mitra" className="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+            </div>
+            <div className="flex-1">
+            <label htmlFor="kota" className="sr-only">Kota:</label>
+              <input type="text" name="kota" id="kota" value={kota} onChange={(event) => setkota(event.target.value)} placeholder="kota" className="w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
             </div>
             
             <div className="flex-none">
